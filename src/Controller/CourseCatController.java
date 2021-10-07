@@ -21,7 +21,7 @@ public class CourseCatController {
 	} 
 	
 	/**
-     * OPTION 1
+     * OPTION 1 : search course catalogue
      */
     class SearchCatCourseListener implements ActionListener {
         @Override
@@ -34,7 +34,7 @@ public class CourseCatController {
     
     
     /**
-     * OPTION 2
+     * OPTION 2 : add student to course
      */
     class AddCourseListener implements ActionListener {
         @Override
@@ -46,21 +46,10 @@ public class CourseCatController {
             theView.promptStudentID();
         }
     }
+
     
     /**
-     * OPTION 3
-     */
-    class RemoveCourseListener implements ActionListener {
-         @Override
-        public void actionPerformed(ActionEvent e) {
-             theView.setMenuSelected(3);
-             theView.promptCourseName();
-             theView.promptCourseNumber();
-         }
-    }
-    
-    /**
-     * OPTION 4
+     * OPTION 4 : view all courses in catalogue
      */
     class ViewAllCoursesListener implements ActionListener {
          @Override
@@ -69,17 +58,9 @@ public class CourseCatController {
          }
     }
 
+
     /**
-     * OPTION 5
-     */
-    class ViewAllStudentCoursesListener implements ActionListener {
-         @Override
-        public void actionPerformed(ActionEvent e) {
-             theView.setMenuSelected(5);
-         }
-    }
-    /**
-//   * OPTION 6
+//   * OPTION 6 : submit
    */
   class QuitListener implements ActionListener {
        @Override
@@ -87,8 +68,10 @@ public class CourseCatController {
            System.exit(0);
        }
   }
-    
-    
+
+    /**
+     * submit button
+     */
     class SubmitListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -98,7 +81,6 @@ public class CourseCatController {
             int number = -1;
             int section = -1;
             int studentID = -1;
-            System.out.println(selection);
             switch (selection) {
                 case 1: // search all courses
                     name = theView.getCourseName();

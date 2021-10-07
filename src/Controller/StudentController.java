@@ -20,16 +20,6 @@ public class StudentController{
 										new SubmitListener());
 	}
 
-	/**
-     * OPTION 2 : add student to course
-     */
-    class AddCourseListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            theView.setMenuSelected(2);
-            theView.promptStudentID();
-        }
-    }
     
     /**
      * OPTION 3 : remove student from course
@@ -38,19 +28,12 @@ public class StudentController{
          @Override
         public void actionPerformed(ActionEvent e) {
              theView.setMenuSelected(3);
+             theView.promptCourseName();
+             theView.promptCourseNumber();
              theView.promptStudentID();
          }
     }
-    
-    /**
-     * OPTION 4 : list out all courses
-     */
-    class ViewAllCoursesListener implements ActionListener {
-        @Override
-       public void actionPerformed(ActionEvent e) {
-            theView.outputToUser(dbInterface.viewCoursesInCatalogue());
-        }
-   }
+
     
     
     /**
@@ -74,6 +57,9 @@ public class StudentController{
        }
   }
 
+    /**
+     * submit button
+     */
     class SubmitListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -83,7 +69,6 @@ public class StudentController{
             int number = -1;
             int section = -1;
             int studentID = -1;
-            System.out.println(selection);
             switch (selection) {
                 case 3: //remove student from course
                     name = theView.getCourseName();
