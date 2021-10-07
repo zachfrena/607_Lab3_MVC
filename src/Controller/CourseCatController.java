@@ -14,9 +14,10 @@ public class CourseCatController {
 	public CourseCatController(View theView, DBinterface dbInterface) {
 		this.theView=theView;
 		this.dbInterface=dbInterface;
-		theView.addCatActionListener(new SearchCatCourseListener(), new AddCourseListener(), 
-									new RemoveCourseListener(), new ViewAllCoursesListener(),
-									new QuitListener(), new SubmitListener());
+		theView.addCatActionListener(new SearchCatCourseListener(),
+                                    new AddCourseListener(),
+                                    new ViewAllCoursesListener(),
+									new SubmitListener());
 	} 
 	
 	/**
@@ -42,6 +43,7 @@ public class CourseCatController {
             theView.promptCourseName();
             theView.promptCourseNumber();
             theView.promptCourseSection();
+            theView.promptStudentID();
         }
     }
     
@@ -98,7 +100,7 @@ public class CourseCatController {
             int studentID = -1;
             System.out.println(selection);
             switch (selection) {
-                case 1:
+                case 1: // search all courses
                     name = theView.getCourseName();
                     number = theView.getCourseNumber();
                     outputToUser = dbInterface.searchCatCourses(name, number)
