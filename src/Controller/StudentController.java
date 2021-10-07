@@ -14,15 +14,14 @@ public class StudentController{
 	public StudentController(View theView, DBinterface dbInterface){
 		this.theView=theView;
 		this.dbInterface=dbInterface;
-		theView.addStudentActionListener(new AddCourseListener(), new RemoveCourseListener(), 
-										new ViewAllStudentCoursesListener(), 
+		theView.addStudentActionListener(new RemoveCourseListener(),
+										new ViewAllStudentCoursesListener(),
+                                        new QuitListener(),
 										new SubmitListener());
-				
-	}//took out: new QuitListener()
+	}
 
-    public void test(){};
 	/**
-     * OPTION 2
+     * OPTION 2 : add student to course
      */
     class AddCourseListener implements ActionListener {
         @Override
@@ -33,7 +32,7 @@ public class StudentController{
     }
     
     /**
-     * OPTION 3
+     * OPTION 3 : remove student from course
      */
     class RemoveCourseListener implements ActionListener {
          @Override
@@ -44,7 +43,7 @@ public class StudentController{
     }
     
     /**
-     * OPTION 4
+     * OPTION 4 : list out all courses
      */
     class ViewAllCoursesListener implements ActionListener {
         @Override
@@ -55,7 +54,7 @@ public class StudentController{
     
     
     /**
-     * OPTION 5
+     * OPTION 5 : view all courses for single student
      */
     class ViewAllStudentCoursesListener implements ActionListener {
          @Override
@@ -66,7 +65,7 @@ public class StudentController{
     }
     
     /**
-   * OPTION 6
+   * OPTION 6 : quit
    */
   class QuitListener implements ActionListener {
        @Override
@@ -86,7 +85,7 @@ public class StudentController{
             int studentID = -1;
             System.out.println(selection);
             switch (selection) {
-                case 3:
+                case 3: //remove student from course
                     name = theView.getCourseName();
                     number = theView.getCourseNumber();
                     studentID = theView.getStudentID();
@@ -94,7 +93,7 @@ public class StudentController{
                             ? String.format("Student: %s was successfully removed from %s - %d", dbInterface.getStudentName(studentID), name, number)
                             : String.format("Student: %s could not be removed from %s - %d ", dbInterface.getStudentName(studentID), name, number);
                     break;
-                case 5:
+                case 5: //view all courses for unique student
                     studentID = theView.getStudentID();
                     outputToUser = dbInterface.viewStudentCourses(studentID);
                     break;

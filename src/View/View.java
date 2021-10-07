@@ -128,27 +128,25 @@ public class View extends JFrame {
     public int getStudentID() { return Integer.parseInt(studentIDText.getText()); }
 
     // ADD ACTION LISTENERS FOR STUDENT CONTROLLER
-    public void addStudentActionListener (ActionListener addListener,
-                                          ActionListener removeListener, ActionListener studentCourseListener,
-
-                                          ActionListener submitListener) {//ActionListener quitListener,
-        addCourseButton.addActionListener(addListener);
+    public void addStudentActionListener (ActionListener removeListener,
+                                          ActionListener studentCourseListener,
+                                          ActionListener quitListener,
+                                          ActionListener submitListener) {
         removeCourseButton.addActionListener(removeListener);
         viewAllStudentCoursesButton.addActionListener(studentCourseListener);
-//		quitButton.addActionListener(quitListener); //removed from this method
+		quitButton.addActionListener(quitListener);
         submitButton.addActionListener(submitListener);
     }
 
     // ADD ACTION LISTENERS FOR CATALOGUE CONTROLLER
-    public void addCatActionListener (ActionListener searchListener, ActionListener addListener,
-                                   ActionListener removeListener, ActionListener allCourseListener,
-                                   ActionListener quitListener, 
-                                   ActionListener submitListener) { 
+    public void addCatActionListener (ActionListener searchListener,
+                                      ActionListener addListener,
+                                      ActionListener allCourseListener,
+                                   ActionListener submitListener) {
+
         searchCatCourseButton.addActionListener(searchListener);
         addCourseButton.addActionListener(addListener);
-        removeCourseButton.addActionListener(removeListener);
         viewAllCoursesButton.addActionListener(allCourseListener);
-        quitButton.addActionListener(quitListener);
         submitButton.addActionListener(submitListener);
     }
 
