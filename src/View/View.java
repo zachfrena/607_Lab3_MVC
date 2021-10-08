@@ -52,7 +52,7 @@ public class View extends JFrame {
         input.setBackground(new Color(169, 192, 212));
 
         output = new JPanel();
-        output.setPreferredSize(new Dimension(440,200));
+        output.setPreferredSize(new Dimension(460,200));
         output.setBackground(new Color(169, 192, 212));
 
         frame.add(GUI);
