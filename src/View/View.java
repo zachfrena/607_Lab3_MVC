@@ -33,7 +33,7 @@ public class View extends JFrame {
     public View() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700,900);
+        frame.setSize(600,1000);
         frame.setBackground(Color.RED);
         frame.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 
@@ -48,11 +48,11 @@ public class View extends JFrame {
         GUI.add(quitButton);
 
         input = new JPanel();
-        input.setPreferredSize(new Dimension(390,350));
+        input.setPreferredSize(new Dimension(390,390));
         input.setBackground(new Color(169, 192, 212));
 
         output = new JPanel();
-        output.setPreferredSize(new Dimension(600,200));
+        output.setPreferredSize(new Dimension(440,200));
         output.setBackground(new Color(169, 192, 212));
 
         frame.add(GUI);
@@ -128,11 +128,10 @@ public class View extends JFrame {
     public int getStudentID() { return Integer.parseInt(studentIDText.getText()); }
 
     // ADD ACTION LISTENERS FOR STUDENT CONTROLLER
-    public void addStudentActionListener (ActionListener removeListener,
-                                          ActionListener studentCourseListener,
+    public void addStudentActionListener (ActionListener studentCourseListener,
                                           ActionListener quitListener,
                                           ActionListener submitListener) {
-        removeCourseButton.addActionListener(removeListener);
+
         viewAllStudentCoursesButton.addActionListener(studentCourseListener);
 		quitButton.addActionListener(quitListener);
         submitButton.addActionListener(submitListener);
@@ -140,14 +139,17 @@ public class View extends JFrame {
 
     // ADD ACTION LISTENERS FOR CATALOGUE CONTROLLER
     public void addCatActionListener (ActionListener searchListener,
-                                      ActionListener addListener,
                                       ActionListener allCourseListener,
-                                   ActionListener submitListener) {
+                                   ActionListener submitListener,
+                                      ActionListener addListener,
+                                      ActionListener removeListener) {
 
         searchCatCourseButton.addActionListener(searchListener);
-        addCourseButton.addActionListener(addListener);
         viewAllCoursesButton.addActionListener(allCourseListener);
         submitButton.addActionListener(submitListener);
+        addCourseButton.addActionListener(addListener);
+       removeCourseButton.addActionListener(removeListener);
     }
+
 
 }
